@@ -43,7 +43,7 @@ int main()
 
   MainList.Head = Head;
   MainList.Tail = Tail;
-
+  MainList.Count = 8;
   fstream fs;
   fs.open("listFile.txt", ios_base::out | ios_base::binary);
   cout << "Initial List:" << endl;

@@ -37,6 +37,7 @@ void ListRand::Deserialize(fstream& fs)
   }
   if (nodesArray.size() == 0)
     return;
+  Count = nodesArray.size();
   Head = nodesArray.at(0).first;
   randNodeNumber = nodesArray.at(0).second;
   Head->Rand = (randNodeNumber == -1)
