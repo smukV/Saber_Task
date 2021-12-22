@@ -4,21 +4,21 @@
 void ListRand::Serialize(fstream& fs)
 {
   ListNode* node = Head;
-  map<string, int> nodesMap;
-  nodesMap["nulltpr"] = -1;
+  map<ListNode*, int> nodesMap;
+  nodesMap[nullptr] = -1;
   for (int i = 0; node != nullptr; i++, node = node->Next)
   {
-    nodesMap[node->Data] = i;
+    nodesMap[node] = i;
   }
   node = Head;
   while (node->Next != nullptr)
   {
     fs << node->Data.data() << ' '
-       << ((node->Rand) ? (nodesMap[node->Rand->Data]) : -1) << ' ';
+       << ((node->Rand) ? (nodesMap[node->Rand]) : -1) << ' ';
     node = node->Next;
   }
   fs << node->Data.data() << ' '
-     << ((node->Rand) ? (nodesMap[node->Rand->Data]) : -1);
+     << ((node->Rand) ? (nodesMap[node->Rand]) : -1);
 }
 
 void ListRand::Deserialize(fstream& fs) 
